@@ -1,0 +1,15 @@
+ <h1>{{title}}</h1>
+ <h2>{{formatAuthor author}}</h2>
+ <p>{{summary}}</p>
+ {{#if comments}}
+ <h3>Comments</h3>
+ {{#each comments}}
+ <p>
+ <b>Email:</b> {{email}}<br>
+ <b>Comment: </b> {{content}}
+ </p>
+ {{/each}}
+ <br>
+ {{else}}<h3>No comments</h3>{{/if}}
+ <button onclick="{{model}}.comments.push({email:'user@email.com', content:'NewComment'}); View.renderTemplate('main-template','contents',{book:book, book2:book2});"> Add Comment </button>
+ <hr>
