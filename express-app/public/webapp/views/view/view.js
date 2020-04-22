@@ -33,9 +33,10 @@ $(function () {
       return $(function () {
         Model.getBooks()
    .then(function(books){
-    View.renderTemplate('main-template', 'contents', { book: books[0], book2: books[1] });
+    View.renderer.index.render({ book: books[0],book2: books[1] });
     });
       })
     });
 })
 
+View.renderer={};
