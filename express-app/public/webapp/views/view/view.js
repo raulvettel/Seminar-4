@@ -31,10 +31,7 @@ $(function () {
   Promise.all(promises)
     .then(function () {
       return $(function () {
-        Model.getBooks()
-   .then(function(books){
-    View.renderer.index.render({ book: books[0],book2: books[1] });
-    });
+       Controller.controllers.index.refresh();
       })
     });
 })
