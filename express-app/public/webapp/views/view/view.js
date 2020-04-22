@@ -11,13 +11,13 @@ View.renderTemplate = function (id, container, context) {
 
 View.loadTemplate = function (filename) {
   return $.ajax({
-    url: '/javascripts/templates/' + filename + '.hbs'
+    url: '/webapp/views/templates/' + filename + '.hbs'
   });
 }
 
 View.loadPartial = function (filename) {
   return $.ajax({
-    url: '/javascripts/partials/' + filename + '.hbs'
+    url: '/webapp/views/partials/' + filename + '.hbs'
   })
     .then(function (contents) {
       return Handlebars.registerPartial(filename, contents);
