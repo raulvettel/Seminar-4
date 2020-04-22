@@ -31,9 +31,11 @@ $(function () {
   Promise.all(promises)
     .then(function () {
       return $(function () {
-        View.renderTemplate('main-template', 'contents', { book: book, book2: book2 });
+        Model.getBooks()
+   .then(function(books){
+    View.renderTemplate('main-template', 'contents', { book: books[0], book2: books[1] });
+    });
       })
     });
-  View.renderTemplate('main-template', 'contents', { book: book, book2: book2 });
 })
 
