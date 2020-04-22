@@ -1,4 +1,10 @@
-View.renderer.index={};
- View.renderer.index.render=function(c){
- View.renderTemplate('main-template', 'contents', c);
+Controller.controllers.index = {};
+Controller.controllers.index.refresh = function(){
+var context = {};
+Model.getBooks()
+.then(function(books){
+context.book = books[0];
+context.book2 = books[1];
+View.renderer.index.render(context);
+});
  }
