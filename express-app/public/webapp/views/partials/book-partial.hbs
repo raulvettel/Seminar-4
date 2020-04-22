@@ -11,5 +11,5 @@
  {{/each}}
  <br>
  {{else}}<h3>No comments</h3>{{/if}}
- <button onclick="{{model}}.comments.push({email:'user@email.com', content:'NewComment'}); View.renderTemplate('main-template','contents',{book:book, book2:book2});"> Add Comment </button>
+ <button onclick="{{addComment_onclick}}(event, {{id}},{email:'user@email.com', content:'NewComment'});"> Add Comment </button>
  <hr>

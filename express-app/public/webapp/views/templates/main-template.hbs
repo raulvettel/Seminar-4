@@ -1,2 +1,3 @@
- {{> book-partial book model='book'}}
- {{> book-partial book2 model='book2'}}
+{{#each books}}
+{{> book-partial this addComment_onclick='Controller.controllers.index.addComment_clicked'}}
+{{/each}}
