@@ -11,13 +11,13 @@ View.renderTemplate = function (id, container, context) {
 
 View.loadTemplate = function (filename) {
   return $.ajax({
-    url: 'templates/' + filename + '.hbs'
+    url: '/webapp/views/templates/' + filename + '.hbs'
   });
 }
 
 View.loadPartial = function (filename) {
   return $.ajax({
-    url: 'partials/' + filename + '.hbs'
+    url: '/webapp/views/partials/' + filename + '.hbs'
   })
     .then(function (contents) {
       return Handlebars.registerPartial(filename, contents);
@@ -31,7 +31,7 @@ $(function () {
   Promise.all(promises)
     .then(function () {
       return $(function () {
-       Controller.controllers.index.refresh();
+       Controller.router.route();
       })
     });
 })
