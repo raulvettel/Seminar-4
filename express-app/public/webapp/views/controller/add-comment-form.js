@@ -15,20 +15,23 @@ Model.getBook(matching.input[24])
     Controller.router.go('/webapp/views/');
     }
 
-Controller.controllers.addCommentForm.addComment_clicked = function (event, bid) {
-  event.preventDefault();
-  var comment = {
-  content : $('#comment').val(),
-  email: $('#email').val()
-  }
-  Model.addCommentToBook(bid, comment)
-  .then(function () {
-  console.log('Comment added successfully');
-  })
-  .catch(function (err) {
-  console.error('Comment cannot be added', err);
-  })
-  .then(function(){
-  Controller.router.go('/webapp/views/');
- });
-}
+    Controller.controllers.addCommentForm.addComment_clicked = function (event, bid) {
+         event.preventDefault();
+         var comment = {
+         content: $('#comment').val(),
+         email: $('#email').val()
+         }
+         Model.addCommentToBook(bid, comment)
+        .then(function () {
+        if (comment.email.length < 1)
+         throw new Error('Email cannot be empty')
+         Controller.messages.pushInfo('Comment added successfully');
+         console.log('Comment added successfully');
+         Controller.router.go('/webapp/views/');
+         })
+         .catch(function (err) {
+         Controller.messages.pushError('Comment cannot be added: '+err.message);
+         console.error('Comment cannot be added', err.message);
+         Controller.router.go('');
+         })
+         }

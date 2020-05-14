@@ -27,7 +27,8 @@ View.loadPartial = function (filename) {
 
 $(function () {
   var promises = [
-    View.loadPartial('book-partial')
+    View.loadPartial('book-partial'),
+    View.loadPartial('messages-partial')
   ];
   Promise.all(promises)
     .then(function () {
