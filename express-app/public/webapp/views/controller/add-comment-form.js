@@ -1,6 +1,7 @@
 Controller.controllers.addCommentForm={};
 Controller.controllers.addCommentForm.refresh = function (matching) {
-Model.getBook(matching[1])
+
+Model.getBook(matching.input[24])
  .then(function (book) {
  View.renderer.commentForm.render(book);
  })
