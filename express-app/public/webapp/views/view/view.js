@@ -1,4 +1,5 @@
-var View = {};
+window.addEventListener('popstate', (event)=> Controller.
+router.route(), false); var View = {};
 
 View.renderTemplate = function (id, container, context) {
   return View.loadTemplate(id)

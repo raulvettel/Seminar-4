@@ -11,5 +11,4 @@
  {{/each}}
  <br>
  {{else}}<h3>No comments</h3>{{/if}}
- <a href="/webapp/views/view/book/{{id}}/addComment">Add Comment</a>
- <hr>
+<a onclick="{{addComment_onclick}}(event);" href="/webapp/views/view/book/{{id}}/addComment">Add Comment</a> <hr>

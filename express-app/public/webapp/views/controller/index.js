@@ -8,16 +8,5 @@ View.renderer.index.render(context);
 });
 }
 
-Controller.controllers.index.addComment_clicked = function (event, bid, comment) {
- Model.addCommentToBook(bid, comment)
-
- .then(function () {
- console.log('Comment added successfully');
- })
- .catch(function (err) {
- console.error('Comment cannot be added', err);
- })
- .then(function(){
- Controller.controllers.index.refresh();
- });
- }
+event.preventDefault();
+Controller.router.go(event.target.href);

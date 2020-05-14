@@ -15,3 +15,8 @@ else {
 console.error('Page not found!');
 }
 }
+
+Controller.router.go = function (url) {
+    history.pushState(null, '', url);
+    Controller.router.route();
+    }

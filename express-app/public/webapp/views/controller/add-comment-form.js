@@ -9,3 +9,8 @@ Model.getBook(matching.input[24])
  console.error('Book not found!', err)
  });
  }
+
+ Controller.controllers.addCommentForm.cancel_clicked=function(event){
+    event.preventDefault();
+    Controller.router.go('/webapp/views/');
+    }
